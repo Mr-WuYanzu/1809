@@ -27,7 +27,6 @@ class WxController extends Controller
     		if(!$res){
     			$data=file_get_contents("https://api.weixin.qq.com/cgi-bin/user/info?access_token=".$this->getAccessToken()."&openid=".$openid."&lang=zh_CN");
     			$data=json_decode($data,true);
-    			dd($data);
     			$info=[
     				'openid'=>$openid,
     				'nickname'=>$data['nickname'],
@@ -48,6 +47,7 @@ class WxController extends Controller
     public function getAccessToken(){
     	$str=Redis::get('token');
     	if(!$str){
+    		echo 'NO CACHE:';
 	    	$url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxe5ff29e2590e9cef&secret=02f770d9872fdf95de605f22c783fe46";
 	    	$token=file_get_contents($url);
 	    	$arr=json_decode($token);
