@@ -59,49 +59,32 @@ class WxController extends Controller
     }
     //创建菜单
     public function create_menu(){
-    	$url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->getAccessToken();
-    	$data=[
-    		'button'=>[
-    			[
-    				'type'=>'click',
-    				'name'=>'点一下',
-    				'key'=>'hhhhhhh'
-    			],
-    			[
-    				'name'=>'菜单',
-    				'sub_button'=>[
-    					[
-    						'type'=>'view',
-    						'name'=>'搜狗',
-    						'url'=>'http://www.sougou.com'
-    					],
-    					[
-    						'name'=>'发送位置',
-    						'type'=>'location_select',
-    						'key'=>'rselfmenu_2_0',
-    					],
-    				],
-    				'name'=>'发图',
-    				'sub_button'=>[
-    					'type'=>'pic_sysphoto',
-    					'name'=>'拍照发图',
-    					'key'=>'rselfmenu_1_0',
-    					'sub_button'=>[ ],
-    				],
-    			],
-    		],
-    	];
-    	$arr=json_encode($data,JSON_UNESCAPED_UNICODE);
-    	$client=new Client();
-    	$res=$client->respons('POST',$url,[
-    		'body'=>$arr
-    	]);
-    	$arr=$res->getBody();
-    	$arr=json_decode($arr,true);
-    	if($arr['errcode']>0){
-    		echo "创建菜单成功";
-    	}else{
-    		echo "创建菜单失败";
-    	}
+    	 $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->getAccessToken();
+        $arr=[
+            'button'=>[
+                [
+                    'type'=>'click',
+                    'name'=>'sss',
+                    'key'=> 'V1001_TODAY_TWLY',
+                ],
+                [
+                    'type'=>'click',
+                    'name'=>'eee',
+                    'key'=> 'V1001_TODAY_JZSC',
+                ]
+            ]
+        ];
+        $str=json_encode($arr,JSON_UNESCAPED_UNICODE);
+        $client=new Client();
+        $respons=$client->request('POST',$url,[
+            'body'=>$str
+        ]);
+        $ass=$respons->getBody();
+        $ar=json_decode($ass,true);
+        if($ar['errcode']>0){
+            echo "创建菜单失败";
+        }else{
+            echo "创建菜单成功";
+        }
     }
 }
