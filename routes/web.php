@@ -24,4 +24,4 @@ Route::post('/weixin/valid',"WxController@WxEvent");
 //获取access_token
 Route::get('/weixin/token',"WxController@getAccessToken");
 //创建菜单
-Route::post('/weixin/create_menu',"WxController@create_menu");
+Route::get('/weixin/create_menu',"WxController@create_menu");
