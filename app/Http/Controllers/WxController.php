@@ -92,7 +92,7 @@ class WxController extends Controller
         $ass=$respons->getBody();
         $ar=json_decode($ass,true);
         if($ar['errcode']>0){
-            echo "创建菜单失败";
+            echo "创建菜单失败s";
         }else{
             echo "创建菜单成功";
         }
