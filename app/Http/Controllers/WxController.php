@@ -65,7 +65,7 @@ class WxController extends Controller
     			[
     				'type'=>'click',
     				'name'=>'点一下',
-    				'key'=>'hhhhhhh'
+    				'key'=>'V1001_TODAY_cli'
     			],
     			[
     				'name'=>'菜单',
