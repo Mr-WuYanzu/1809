@@ -81,13 +81,6 @@ class WxController extends Controller
     						'key'=>'rselfmenu_2_0',
     					],
     				],
-    				'name'=>'发图',
-    				'sub_button'=>[
-    					'type'=>'pic_sysphoto',
-    					'name'=>'拍照发图',
-    					'key'=>'rselfmenu_1_0',
-    					'sub_button'=>[ ],
-    				],
     			],
     		],
         ];
