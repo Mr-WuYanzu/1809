@@ -62,17 +62,34 @@ class WxController extends Controller
     	 $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->getAccessToken();
         $arr=[
             'button'=>[
-                [
-                    'type'=>'click',
-                    'name'=>'sss',
-                    'key'=> 'V1001_TODAY_TWLY',
-                ],
-                [
-                    'type'=>'click',
-                    'name'=>'eee',
-                    'key'=> 'V1001_TODAY_JZSC',
-                ]
-            ]
+    			[
+    				'type'=>'click',
+    				'name'=>'点一下',
+    				'key'=>'hhhhhhh'
+    			],
+    			[
+    				'name'=>'菜单',
+    				'sub_button'=>[
+    					[
+    						'type'=>'view',
+    						'name'=>'搜狗',
+    						'url'=>'http://www.sougou.com'
+    					],
+    					[
+    						'name'=>'发送位置',
+    						'type'=>'location_select',
+    						'key'=>'rselfmenu_2_0',
+    					],
+    				],
+    				'name'=>'发图',
+    				'sub_button'=>[
+    					'type'=>'pic_sysphoto',
+    					'name'=>'拍照发图',
+    					'key'=>'rselfmenu_1_0',
+    					'sub_button'=>[ ],
+    				],
+    			],
+    		],
         ];
         $str=json_encode($arr,JSON_UNESCAPED_UNICODE);
         $client=new Client();
